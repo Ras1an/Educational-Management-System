@@ -1,0 +1,169 @@
+﻿@model Dto.Registerdto
+
+@{
+    var message = ViewBag.Message;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css Files -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../assets/css/all.min.css" />
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+          rel="stylesheet" />
+    <title>Sign Up</title>
+</head>
+<body>
+    <!-- Start Login -->
+    <div class="login مخ overflow-hidden">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="pic d-flex align-items-center justify-content-center">
+                    <img src="../../assets/img/login.png"
+                         alt=""
+                         class="mw-100 h-100 w-100" />
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <a href="../index.html"
+                   class="pics d-flex align-items-center justify-content-end"
+                   data-aos="fade-right"
+                   data-aos-duration="800">
+                    <img class="logo-img" src="../../assets/img/logo.png" alt="" />
+                </a>
+                <div class="form-container pt-3 pb-5">
+                    <div class="container">
+                        <form asp-controller="Base" asp-action="SignUp" method="post" onsubmit="return validatePasswords()">
+                            <h4 class="fw-bold mb-3">Register Now</h4>
+                            @if (!string.IsNullOrEmpty(message))
+                            {
+                                <div class="message-box">
+                                    <p>@message</p>
+                                </div>
+                            }
+                            <input asp-for="Name"
+                                   class="form-control rounded"
+                                   type="text"
+                                   placeholder="Full Name"
+                                   name="name"
+                                   required="name" /><br />
+                            <input asp-for="Email"
+                                   class="form-control rounded"
+                                   type="text"
+                                   placeholder="Email"
+                                   name="email"
+                                   required="email" /><br />
+                            <input asp-for="PhoneNumber"
+                                   class="form-control rounded"
+                                   type="tel"
+                                   placeholder="Phone"
+                                   name="PhoneNumber"
+                                   required="phone" /><br />
+                            <input asp-for="Username"
+                                   class="form-control rounded"
+                                   type="username"
+                                   placeholder="username"
+                                   name="username"
+                                   id="username"
+                                   required="" /><br />
+
+                            <input asp-for="Password"
+                                   class="form-control rounded"
+                                   type="password"
+                                   placeholder="Password"
+                                   name="password"
+                                   id="password"
+                                   required="" /><br />
+                            <input asp-for="ConfirmPassword"
+                                   class="form-control rounded"
+                                   type="password"
+                                   placeholder="Confirm Password"
+                                   name="ConfirmPassword"
+                                   id="confirm-password"
+                                   required="" /><br />
+
+                            <div id="password-error" style="color:red; display:none;">Passwords do not match.</div>
+
+                            <select asp-for="UserType" class="form-control rounded" id="UserType" required="">
+                                <option value="" disabled selected>Select User Type</option>
+                                <option value="Student">Student</option>
+                                <option value="Instructor">Instructor</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                            <br />
+
+                            <div class="form-check">
+                                <input class="form-check-input radio-ch border border-black"
+                                       type="checkbox"
+                                       value=""
+                                       id="flexCheckDefault"
+                                       style="height: 15px !important" />
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    By Signing Up You Accept Our
+                                    <a href="#" class="text-primary">Terms of use and privacy policy</a>
+                                </label>
+                            </div>
+                            <br />
+                            <input id="contactButton"
+                                   class="btn mb-3 text-white w-100 fs-5 rounded"
+                                   type="submit"
+                                   value="Registration" />
+                            <br />
+                            <span class="fw-bold">
+                                <a asp-controller="Base" asp-action="SignIn" class="btn up-coming" style="color: rgb(255, 154, 21);">I Already Have An Account?</a>
+
+                            </span>
+                            <br />
+                            <span class="d-flex align-items-center justify-content-center">Or</span>
+                            <br />
+                            <div class="buttons d-flex align-items-center flex-column gap-3">
+                                <a class="google py-2 btn w-75 bg-white border text-black d-flex align-items-center justify-content-center gap-2">
+                                    <img width="16"
+                                         src="https://wedigitsa.com/assets/web/asset_en/img/google-icon.svg"
+                                         alt=""
+                                         class="mw-100" />
+                                    <span>Continue With Google</span>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Login -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/dark-mode.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        function validatePasswords() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            var errorElement = document.getElementById("password-error");
+
+            if (password !== confirmPassword) {
+                errorElement.style.display = "block";
+                return false; // Prevent form submission
+            } else {
+                errorElement.style.display = "none";
+                return true; // Allow form submission
+            }
+        }
+    </script>
+</body>
+</html>

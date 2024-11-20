@@ -1,0 +1,90 @@
+﻿@using Models;
+
+@model List<Course>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css Files -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../assets/css/all.min.css" />
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/style-ltr.css" />
+    <link rel="stylesheet" href="../../assets/css/dark-mode.css" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+          rel="stylesheet" />
+    <title>Contact Us</title>
+</head>
+<body>
+    <!-- Start Courses -->
+    <div class="courses mt-5 mb-5">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5">Courses</h2>
+            <div class="row">
+
+
+                 
+        @foreach(var c in Model){
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="box rounded-5 overflow-hidden">
+                        <div class="pic position-relative">
+                            <img src="../assets/img/course-1.png"
+                                 alt=""
+                                 class="mw-100 w-100" />
+                        </div>
+                        <div class="content p-3 d-flex flex-column gap-3">
+                            <span class="text-secondary">1 - 28 July 2022</span>
+                            <div class="name d-flex align-items-center justify-content-between">
+                                    <h4 class="text-black m-0">@c.Name</h4>
+                                <div class="stars d-flex align-items-center gap-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                            <p>
+                                    Course Code: @c.CourseCode<br />
+                                Product Management Masterclass, you will learn with Sarah
+                                Johnson - Head of Product Customer Platform Gojek Indonesia.
+                            </p>
+                        </div>
+                        <div class="info d-flex align-items-center justify-content-around pb-3">
+                            <div class="price d-flex align-items-center gap-3">
+                                <span class="fw-bold">$ 380</span>
+                                <span>$ 500</span>
+                            </div>
+                            <a href="#" class="main-btn btn"> Enroll Now </a>
+                        </div>
+                    </div>
+                </div>
+                }
+                
+
+
+            </div>
+        </div>
+    </div>
+    <!-- End Courses -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="./assets/js/to-top.js"></script> -->
+    <script src="../../assets/js/dark-mode.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

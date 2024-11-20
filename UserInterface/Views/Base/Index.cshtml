@@ -1,0 +1,1188 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css Files -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/style-ltr.css" />
+
+    <link rel="stylesheet" href="/assets/css/dark-mode.css" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+
+
+
+    <!-- Start Landing -->
+    <div class="landing mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="content d-flex flex-column align-items-center gap-5 justify-content-center text-center text-md-start">
+                        <h1>
+                            <span>1% of 8 Billion People</span>
+                            around the world today is 80 Miillions
+                        </h1>
+                        <p class="text-muted">
+                            Transform Your Learning Experience with Comprehensive Online
+                            Courses. Learn from Industry Leaders, Access Knowledge Anytime,
+                            Anywhere, and Elevate Your Skills. Join Us Today and Start Your
+                            Journey to Success
+                        </p>
+                        <div class="input-group p-3 rounded-5">
+                            <div class="form-outline d-flex align-items-center gap-1"
+                                 data-mdb-input-init>
+                                <i class="fas fa-search text-white"></i>
+                                <input type="search"
+                                       id="form1"
+                                       class="form-control"
+                                       placeholder="What Do You Want To Learn"
+                                       onkeyup="searchLive()" />
+                            </div>
+                            <button type="button"
+                                    class="btn bg-white rounded-5"
+                                    data-mdb-ripple-init>
+                                Explore
+                            </button>
+                        </div>
+                        <!-- Live Search Results -->
+                        <div id="searchResults" class="search-results mt-2"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="pic d-flex align-items-center justify-content-center">
+                        <img src="/assets/img/landing.png" alt="" class="mw-100" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Landing -->
+    <!-- Add your JavaScript code for live search -->
+    <script>
+        function searchLive() {
+            var query = document.getElementById("form1").value;
+
+            if (query.length > 2) { // Only trigger search when input length is > 2
+                $.ajax({
+                    url: '@Url.Action("Search", "YourController")', // Adjust the action/controller
+                    type: 'GET',
+                    data: { searchTerm: query },
+                    success: function (data) {
+                        // Render the search results dynamically
+                        document.getElementById("searchResults").innerHTML = data;
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            } else {
+                // Clear results if query is too short
+                document.getElementById("searchResults").innerHTML = "";
+            }
+        }
+    </script>
+
+
+
+
+
+    <!-- Start Courses -->
+    <div
+      class="courses mt-5 mb-5 overflow-hidden"
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-duration="800"
+    >
+      <div class="container">
+        <div class="head text-center mb-5">
+          <h2>Popular <span>Courses</span></h2>
+        </div>
+        <ul
+          class="nav nav-tabs justify-content-center border-0 gap-4"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link active"
+              id="simple-tab-0"
+              data-bs-toggle="tab"
+              href="#simple-tabpanel-0"
+              role="tab"
+              aria-controls="simple-tabpanel-0"
+              aria-selected="true"
+              >all programme</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="simple-tab-1"
+              data-bs-toggle="tab"
+              href="#simple-tabpanel-3"
+              role="tab"
+              aria-controls="simple-tabpanel-1"
+              aria-selected="false"
+            >
+              Ui/ux design</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="simple-tab-1"
+              data-bs-toggle="tab"
+              href="#simple-tabpanel-1"
+              role="tab"
+              aria-controls="simple-tabpanel-1"
+              aria-selected="false"
+            >
+              program design</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="simple-tab-2"
+              data-bs-toggle="tab"
+              href="#simple-tabpanel-2"
+              role="tab"
+              aria-controls="simple-tabpanel-2"
+              aria-selected="false"
+              >Program design</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content pt-3" id="tab-content">
+          <div
+            class="tab-pane active text-secondary"
+            id="simple-tabpanel-0"
+            role="tabpanel"
+            aria-labelledby="simple-tab-0"
+          >
+            <div class="row">
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane"
+            id="simple-tabpanel-3"
+            role="tabpanel"
+            aria-labelledby="simple-tab-1"
+          >
+            <div class="row">
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane"
+            id="simple-tabpanel-1"
+            role="tabpanel"
+            aria-labelledby="simple-tab-1"
+          >
+            <div class="row">
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane"
+            id="simple-tabpanel-2"
+            role="tabpanel"
+            aria-labelledby="simple-tab-2"
+          >
+            <div class="row">
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 mb-3">
+                <div class="box rounded-4 overflow-hidden">
+                  <div class="pic position-relative">
+                    <img
+                      src="./assets/img/course-1.png"
+                      alt=""
+                      class="mw-100 w-100"
+                    />
+                  </div>
+                  <div class="content p-3 d-flex flex-column gap-3">
+                    <span class="text-secondary">1 - 28 July 2022</span>
+                    <div
+                      class="name d-flex align-items-center justify-content-between"
+                    >
+                      <h4 class="text-black m-0">Ahmed</h4>
+                      <div class="stars d-flex align-items-center gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold">Product Management Basic - Course</h5>
+                    <p>
+                      Product Management Masterclass, you will learn with Sarah
+                      Johnson - Head of Product Customer Platform Gojek
+                      Indonesia.
+                    </p>
+                  </div>
+                  <div
+                    class="info d-flex align-items-center justify-content-around pb-3"
+                  >
+                    <div class="price d-flex align-items-center gap-3">
+                      <span class="fw-bold">$ 380</span>
+                      <span>$ 500</span>
+                    </div>
+                    <a href="#" class="main-btn btn"> Enroll Now </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Courses -->
+    <!-- Start Features -->
+    <div class="features mt-5">
+      <div class="container">
+        <div class="all-feat p-4 rounded-4">
+          <div class="row">
+            <div class="col-md-6 col-lg-4">
+              <div class="feat d-flex gap-1 mb-4">
+                <svg
+                  width="56"
+                  height="56"
+                  viewBox="0 0 56 56"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.1996 4.66666C12.1569 4.96766 10.1083 5.64432 8.5776 7.17732C5.83594 9.92366 5.83594 14.3453 5.83594 23.191V32.571C5.83594 41.4143 5.83594 45.8383 8.5776 48.587C11.3193 51.3357 15.7339 51.3333 24.5609 51.3333H29.2439C38.0709 51.3333 42.4856 51.3333 45.2273 48.587C47.7169 46.0903 47.9479 42.2473 47.9689 34.9463"
+                    stroke="white"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M24.5613 16.3333L26.9016 24.5C28.2083 27.09 29.8486 27.7667 33.925 28C37.166 27.9207 39.0466 27.538 40.652 26.1427C41.7463 25.1907 42.241 23.7557 42.4813 22.3277L43.284 17.5M49.136 12.8333V24.5M20.0696 11.5103C23.7726 8.43732 27.072 6.78766 33.9156 4.97232C34.6877 4.76849 35.5 4.77251 36.27 4.98399C42.3273 6.64999 45.5986 8.12932 49.9806 11.4193C50.1673 11.5593 50.2233 11.8207 50.0926 12.0143C48.6623 14.119 45.468 15.8247 37.6326 18.8627C36.0006 19.4906 34.1919 19.4806 32.567 18.8347C24.223 15.5213 20.387 13.748 19.9203 11.907C19.9051 11.8335 19.9111 11.7572 19.9375 11.687C19.964 11.6168 20.0098 11.5556 20.0696 11.5103Z"
+                    stroke="white"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <div class="feat-content">
+                  <h5>Professional Coureses</h5>
+                  <p>
+                    Advance your career with our Professional Courses, designed
+                    to enhance your skills and open new opportunities for
+                    success in your industry.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="feat d-flex gap-1 mb-4">
+                <svg
+                  width="56"
+                  height="56"
+                  viewBox="0 0 56 56"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M38.792 51.7067C45.9247 51.7067 51.707 45.9244 51.707 38.7917C51.707 31.6589 45.9247 25.8767 38.792 25.8767C31.6592 25.8767 25.877 31.6589 25.877 38.7917C25.877 45.9244 31.6592 51.7067 38.792 51.7067Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M49.5833 31.71V8.69166C49.5681 8.08298 49.3156 7.50437 48.8796 7.07932C48.4437 6.65428 47.8589 6.41647 47.25 6.41666H28V31.71"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M6.41699 28H28.0003V6.41666H8.69199C8.08332 6.43188 7.50471 6.68441 7.07966 7.12036C6.65461 7.55631 6.4168 8.14113 6.41699 8.74999V28ZM6.41699 28V47.3083C6.41699 47.9272 6.66282 48.5207 7.10041 48.9582C7.53799 49.3958 8.13149 49.6417 8.75033 49.6417H31.7103M42.3853 14.105L35.1987 21.28M35.1987 14.105L42.3853 21.28M16.7653 43.8667V33.7167M21.8403 38.7917H11.6787M43.867 37.4617H33.717M43.867 40.74H33.717M21.817 17.675H11.667"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <div class="feat-content">
+                  <h5>Great Materials</h5>
+                  <p>
+                    Enhance your expertise with our Professional Courses,
+                    featuring great materials to help you excel and achieve your
+                    career goals.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="feat d-flex gap-1 mb-4">
+                <svg
+                  width="56"
+                  height="56"
+                  viewBox="0 0 56 56"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M27.4633 46.6666V44.3333H42.8983C43.2872 44.3333 43.6232 44.2135 43.9063 43.974C44.191 43.7344 44.3333 43.4202 44.3333 43.0313V26.9593C44.3333 22.5882 42.7264 18.9381 39.5127 16.009C36.2973 13.0783 32.4598 11.613 28 11.613C23.5402 11.613 19.7027 13.0783 16.4873 16.009C13.2736 18.9381 11.6667 22.5882 11.6667 26.9593V40.2057H10.5C9.54644 40.2057 8.72433 39.8829 8.03367 39.2373C7.34456 38.5933 7 37.7953 7 36.8433V32.445C7 31.7481 7.22633 31.1298 7.679 30.59C8.13322 30.0486 8.68467 29.6092 9.33333 29.2717L9.373 26.404C9.415 23.9695 9.94389 21.714 10.9597 19.6373C11.9754 17.5607 13.3319 15.7539 15.029 14.217C16.7261 12.6801 18.6892 11.4823 20.9183 10.6237C23.1474 9.76498 25.508 9.33487 28 9.33332C30.492 9.33176 32.851 9.7611 35.077 10.6213C37.303 11.4815 39.2576 12.6778 40.9407 14.21C42.6238 15.7422 43.9732 17.5466 44.989 19.6233C46.0048 21.7 46.5508 23.9555 46.627 26.39L46.6667 29.197C47.2858 29.4879 47.8294 29.8791 48.2977 30.3706C48.7659 30.8606 49 31.4494 49 32.137V37.191C49 37.8785 48.7659 38.4673 48.2977 38.9573C47.8294 39.4473 47.2858 39.8378 46.6667 40.1286V43.0313C46.6667 44.0455 46.2996 44.905 45.5653 45.6097C44.8311 46.3143 43.9421 46.6666 42.8983 46.6666H27.4633ZM21.8983 31.591C21.4161 31.591 20.9961 31.4269 20.6383 31.0986C20.2806 30.772 20.1017 30.3675 20.1017 29.8853C20.1017 29.4031 20.2806 28.9909 20.6383 28.6486C20.9961 28.3064 21.4161 28.1353 21.8983 28.1353C22.3806 28.1353 22.7998 28.3064 23.156 28.6486C23.5122 28.9909 23.6911 29.4031 23.6927 29.8853C23.6942 30.3675 23.5153 30.772 23.156 31.0986C22.7967 31.4253 22.3767 31.5886 21.896 31.5886M34.104 31.5886C33.6218 31.5886 33.2018 31.4253 32.844 31.0986C32.4862 30.772 32.3073 30.3675 32.3073 29.8853C32.3073 29.4031 32.4862 28.9909 32.844 28.6486C33.2018 28.3064 33.6218 28.1353 34.104 28.1353C34.5862 28.1353 35.0054 28.3064 35.3617 28.6486C35.7179 28.9909 35.8968 29.4031 35.8983 29.8853C35.8999 30.3675 35.721 30.772 35.3617 31.0986C35.0023 31.4253 34.5823 31.5886 34.1017 31.5886M15.6753 27.8833C15.4638 24.3895 16.5892 21.4114 19.0517 18.949C21.5126 16.4865 24.535 15.2553 28.119 15.2553C31.1306 15.2553 33.7999 16.1599 36.127 17.969C38.4541 19.7781 39.8743 22.1542 40.3877 25.0973C37.2968 25.0584 34.4283 24.2698 31.7823 22.7313C29.1363 21.1929 27.1063 19.054 25.6923 16.3147C25.1292 19.0073 23.9587 21.3671 22.1807 23.394C20.4011 25.4209 18.2327 26.9173 15.6753 27.8833Z"
+                    fill="white"
+                  />
+                </svg>
+
+                <div class="feat-content">
+                  <h5>24/7 Support</h5>
+                  <p>
+                    Advance your career with our Professional Courses, featuring
+                    great materials and 24/7 support to help you succeed
+                    anytime, anywhere.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Features -->
+    <!-- Start Difference -->
+    <div class="difference mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div
+              class="diff-content d-flex flex-column gap-5 text-center text-md-start"
+            >
+              <div class="head">
+                <h2 class="d-flex flex-column gap-2">
+                  What is our
+                  <span> difference</span>
+                </h2>
+              </div>
+              <p>
+                Transform your future with our extensive collection of online
+                courses.
+              </p>
+              <p>
+                From technology and business to creative arts and personal
+                development, our expert-led programs are tailored to help you
+                gain in-demand skills, boost your career, and achieve your
+                personal and professional goals.
+              </p>
+              <div class="btn main-btn py-2 px-5 mb-4">Get Started</div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <picture>
+              <img
+                src="/assets/img/Group 33560.png"
+                alt=""
+                class="mw-100 mb-4"
+              />
+            </picture>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-12">
+                <div class="diff-icons d-flex align-items-center gap-3 mb-4">
+                  <div
+                    class="icon d-flex align-items-center p-3 rounded-circle"
+                  >
+                    <svg
+                      width="36"
+                      height="35"
+                      viewBox="0 0 36 35"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M34.9348 5.69545L18.4348 0.195449C18.1526 0.101354 17.8474 0.101354 17.5652 0.195449L1.06516 5.69545C0.791368 5.78672 0.553239 5.96182 0.384503 6.19596C0.215767 6.43009 0.124979 6.71138 0.125 6.99998V20.75C0.125 21.1147 0.269866 21.4644 0.527728 21.7223C0.785591 21.9801 1.13533 22.125 1.5 22.125C1.86467 22.125 2.21441 21.9801 2.47227 21.7223C2.73013 21.4644 2.875 21.1147 2.875 20.75V8.90779L8.64828 10.8311C7.1144 13.3092 6.62663 16.2947 7.29208 19.1321C7.95752 21.9695 9.72179 24.4269 12.1975 25.9647C9.10375 27.1781 6.42937 29.3729 4.47344 32.3739C4.37171 32.5251 4.30106 32.695 4.26557 32.8737C4.23009 33.0524 4.23049 33.2364 4.26674 33.415C4.303 33.5936 4.37439 33.7632 4.47676 33.9139C4.57914 34.0647 4.71045 34.1936 4.86308 34.2931C5.01571 34.3927 5.1866 34.4609 5.36583 34.4938C5.54505 34.5268 5.72903 34.5237 5.90707 34.4849C6.08512 34.4461 6.25367 34.3723 6.40294 34.2678C6.5522 34.1633 6.67921 34.0301 6.77656 33.8761C9.36672 29.9023 13.4573 27.625 18 27.625C22.5427 27.625 26.6333 29.9023 29.2234 33.8761C29.4251 34.1758 29.7366 34.3841 30.0907 34.456C30.4447 34.5279 30.8128 34.4575 31.1154 34.2602C31.418 34.0628 31.6308 33.7543 31.7077 33.4013C31.7846 33.0483 31.7196 32.6793 31.5266 32.3739C29.5706 29.3729 26.8859 27.1781 23.8025 25.9647C26.2758 24.427 28.0384 21.9712 28.7038 19.1359C29.3691 16.3005 28.8829 13.317 27.3517 10.8397L34.9348 8.3131C35.2087 8.22189 35.4469 8.04681 35.6157 7.81267C35.7845 7.57853 35.8753 7.29721 35.8753 7.00857C35.8753 6.71994 35.7845 6.43862 35.6157 6.20448C35.4469 5.97034 35.2087 5.79526 34.9348 5.70404V5.69545ZM26.25 16.625C26.2504 17.9293 25.9415 19.215 25.3487 20.3768C24.7559 21.5386 23.8961 22.5433 22.8399 23.3085C21.7836 24.0737 20.561 24.5775 19.2723 24.7786C17.9836 24.9798 16.6656 24.8725 15.4264 24.4656C14.1872 24.0588 13.0622 23.3639 12.1435 22.438C11.2249 21.5121 10.5388 20.3816 10.1417 19.1393C9.74459 17.8969 9.64768 16.5781 9.85894 15.291C10.0702 14.004 10.5836 12.7854 11.357 11.7351L17.5652 13.7976C17.8474 13.8917 18.1526 13.8917 18.4348 13.7976L24.643 11.7351C25.6875 13.1514 26.2507 14.8652 26.25 16.625ZM18 11.0511L5.84844 6.99998L18 2.94889L30.1516 6.99998L18 11.0511Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div class="cont">
+                    <p class="fw-bold">400</p>
+                    <p class="text-secondary">Instructor</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-12">
+                <div class="diff-icons d-flex align-items-center gap-3 mb-4">
+                  <div
+                    class="icon d-flex align-items-center p-3 rounded-circle"
+                  >
+                    <svg
+                      width="44"
+                      height="44"
+                      viewBox="0 0 44 44"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.41719 14.6667C6.41755 12.9285 6.86722 11.22 7.72255 9.70684C8.57789 8.1937 9.80985 6.92736 11.2989 6.0307C12.7879 5.13404 14.4834 4.63753 16.2209 4.58933C17.9584 4.54113 19.6788 4.94289 21.2153 5.75562C22.7517 6.56834 24.052 7.76444 24.9899 9.22784C25.9278 10.6912 26.4715 12.3722 26.5682 14.1077C26.6649 15.8431 26.3114 17.5741 25.5419 19.1327C24.7724 20.6912 23.6131 22.0244 22.1765 23.0028C25.2703 24.1376 27.9537 26.1722 29.8814 28.8448C31.809 31.5174 32.8928 34.7058 32.9932 37.9995C32.9889 38.3546 32.8476 38.6944 32.5987 38.9477C32.3499 39.2011 32.0127 39.3485 31.6577 39.3592C31.3027 39.3698 30.9574 39.2429 30.6938 39.0049C30.4302 38.7669 30.2687 38.4362 30.2432 38.082C30.134 34.5097 28.6382 31.1202 26.0727 28.6319C23.5072 26.1436 20.0736 24.752 16.4996 24.752C12.9256 24.752 9.49204 26.1436 6.92654 28.6319C4.36103 31.1202 2.86519 34.5097 2.75602 38.082C2.73766 38.441 2.57943 38.7786 2.31521 39.0224C2.05099 39.2662 1.70181 39.3968 1.34247 39.3862C0.983128 39.3757 0.642207 39.2248 0.392744 38.966C0.143281 38.7071 0.00511768 38.3608 0.00785233 38.0013C0.107863 34.7073 1.19146 31.5185 3.11918 28.8455C5.04689 26.1725 7.73048 24.1377 10.8245 23.0028C9.46616 22.0777 8.35452 20.8346 7.58637 19.3817C6.81822 17.9288 6.41684 16.3101 6.41719 14.6667ZM16.5005 7.33335C14.5556 7.33335 12.6903 8.10596 11.3151 9.48123C9.9398 10.8565 9.16719 12.7218 9.16719 14.6667C9.16719 16.6116 9.9398 18.4769 11.3151 19.8521C12.6903 21.2274 14.5556 22 16.5005 22C18.4454 22 20.3107 21.2274 21.686 19.8521C23.0612 18.4769 23.8339 16.6116 23.8339 14.6667C23.8339 12.7218 23.0612 10.8565 21.686 9.48123C20.3107 8.10596 18.4454 7.33335 16.5005 7.33335ZM31.6989 14.6667C31.4287 14.6667 31.1635 14.685 30.9032 14.7217C30.7214 14.7542 30.535 14.7498 30.3549 14.7088C30.1749 14.6677 30.005 14.5908 29.8554 14.4826C29.7057 14.3744 29.5794 14.2372 29.4839 14.0792C29.3884 13.9211 29.3258 13.7455 29.2997 13.5627C29.2735 13.3799 29.2845 13.1937 29.3319 13.0152C29.3793 12.8368 29.4622 12.6697 29.5756 12.5239C29.6889 12.3782 29.8305 12.2568 29.9918 12.1669C30.1532 12.0771 30.3309 12.0207 30.5145 12.001C32.3379 11.7374 34.1972 12.0875 35.7998 12.9964C37.4024 13.9052 38.6572 15.3211 39.367 17.0213C40.0767 18.7214 40.2009 20.6093 39.7201 22.3878C39.2393 24.1663 38.1808 25.7345 36.7112 26.8455C38.8716 27.8129 40.7059 29.3847 41.9928 31.3713C43.2797 33.358 43.9643 35.6746 43.9639 38.0417C43.9639 38.4064 43.819 38.7561 43.5611 39.014C43.3033 39.2718 42.9535 39.4167 42.5889 39.4167C42.2242 39.4167 41.8744 39.2718 41.6166 39.014C41.3587 38.7561 41.2139 38.4064 41.2139 38.0417C41.2145 35.9957 40.5557 34.0041 39.3351 32.3621C38.1145 30.7201 36.3972 29.5153 34.4379 28.9263L33.4589 28.633V25.5603L34.2105 25.1772C35.3247 24.6128 36.2162 23.6893 36.7411 22.556C37.2659 21.4226 37.3935 20.1454 37.1032 18.9306C36.8129 17.7158 36.1217 16.6342 35.1411 15.8606C34.1605 15.087 32.9479 14.6663 31.6989 14.6667Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div class="cont">
+                    <p class="fw-bold">250000+</p>
+                    <p class="text-secondary">Student</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-12">
+                <div class="diff-icons d-flex align-items-center gap-3 mb-4">
+                  <div
+                    class="icon d-flex align-items-center p-3 rounded-circle"
+                  >
+                    <svg
+                      width="44"
+                      height="44"
+                      viewBox="0 0 44 44"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M11.0004 19.8C12.1673 19.8 13.2865 19.3365 14.1117 18.5113C14.9368 17.6862 15.4004 16.567 15.4004 15.4C15.4004 14.2331 14.9368 13.1139 14.1117 12.2888C13.2865 11.4636 12.1673 11 11.0004 11C9.83344 11 8.71428 11.4636 7.88912 12.2888C7.06396 13.1139 6.60039 14.2331 6.60039 15.4C6.60039 16.567 7.06396 17.6862 7.88912 18.5113C8.71428 19.3365 9.83344 19.8 11.0004 19.8ZM11.0004 22C11.8671 22 12.7254 21.8293 13.5261 21.4977C14.3269 21.166 15.0544 20.6798 15.6673 20.067C16.2802 19.4541 16.7663 18.7265 17.098 17.9258C17.4297 17.125 17.6004 16.2668 17.6004 15.4C17.6004 14.5333 17.4297 13.6751 17.098 12.8743C16.7663 12.0736 16.2802 11.346 15.6673 10.7331C15.0544 10.1203 14.3269 9.63413 13.5261 9.30244C12.7254 8.97076 11.8671 8.80005 11.0004 8.80005C9.24996 8.80005 7.57123 9.4954 6.33349 10.7331C5.09575 11.9709 4.40039 13.6496 4.40039 15.4C4.40039 17.1505 5.09575 18.8292 6.33349 20.067C7.57123 21.3047 9.24996 22 11.0004 22Z"
+                        fill="white"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8.47958 19.5713C8.58202 19.6735 8.66329 19.7949 8.71875 19.9285C8.7742 20.0621 8.80275 20.2054 8.80275 20.3501C8.80275 20.4948 8.7742 20.6381 8.71875 20.7717C8.66329 20.9053 8.58202 21.0267 8.47958 21.1289L7.73598 21.8703C6.30496 23.3017 5.50097 25.2428 5.50078 27.2669V31.3501C5.50078 31.6418 5.38489 31.9216 5.1786 32.1279C4.97231 32.3342 4.69252 32.4501 4.40078 32.4501C4.10904 32.4501 3.82925 32.3342 3.62296 32.1279C3.41667 31.9216 3.30078 31.6418 3.30078 31.3501V27.2669C3.30109 24.6594 4.33695 22.1588 6.18058 20.3149L6.92198 19.5713C7.02416 19.4689 7.14555 19.3876 7.27919 19.3321C7.41283 19.2767 7.55609 19.2481 7.70078 19.2481C7.84547 19.2481 7.98874 19.2767 8.12238 19.3321C8.25601 19.3876 8.3774 19.4689 8.47958 19.5713ZM34.422 18.9113C34.3195 19.0135 34.2383 19.1349 34.1828 19.2685C34.1274 19.4021 34.0988 19.5454 34.0988 19.6901C34.0988 19.8348 34.1274 19.9781 34.1828 20.1117C34.2383 20.2453 34.3195 20.3667 34.422 20.4689L35.1656 21.2103C35.8743 21.919 36.4364 22.7603 36.8199 23.6863C37.2034 24.6122 37.4008 25.6047 37.4008 26.6069V31.3501C37.4008 31.6418 37.5167 31.9216 37.723 32.1279C37.9293 32.3342 38.209 32.4501 38.5008 32.4501C38.7925 32.4501 39.0723 32.3342 39.2786 32.1279C39.4849 31.9216 39.6008 31.6418 39.6008 31.3501V26.6069C39.6005 23.9994 38.5646 21.4988 36.721 19.6549L35.9796 18.9113C35.8774 18.8089 35.756 18.7276 35.6224 18.6721C35.4887 18.6167 35.3455 18.5881 35.2008 18.5881C35.0561 18.5881 34.9128 18.6167 34.7792 18.6721C34.6455 18.7276 34.5242 18.8089 34.422 18.9113Z"
+                        fill="white"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M30.8012 19.8C29.6342 19.8 28.5151 19.3365 27.6899 18.5113C26.8647 17.6862 26.4012 16.567 26.4012 15.4C26.4012 14.2331 26.8647 13.1139 27.6899 12.2888C28.5151 11.4636 29.6342 11 30.8012 11C31.9681 11 33.0873 11.4636 33.9124 12.2888C34.7376 13.1139 35.2012 14.2331 35.2012 15.4C35.2012 16.567 34.7376 17.6862 33.9124 18.5113C33.0873 19.3365 31.9681 19.8 30.8012 19.8ZM30.8012 22C29.9344 22 29.0762 21.8293 28.2755 21.4977C27.4747 21.166 26.7471 20.6798 26.1343 20.067C25.5214 19.4541 25.0352 18.7265 24.7036 17.9258C24.3719 17.125 24.2012 16.2668 24.2012 15.4C24.2012 14.5333 24.3719 13.6751 24.7036 12.8743C25.0352 12.0736 25.5214 11.346 26.1343 10.7331C26.7471 10.1203 27.4747 9.63413 28.2755 9.30244C29.0762 8.97076 29.9344 8.80005 30.8012 8.80005C32.5516 8.80005 34.2303 9.4954 35.4681 10.7331C36.7058 11.9709 37.4012 13.6496 37.4012 15.4C37.4012 17.1505 36.7058 18.8292 35.4681 20.067C34.2303 21.3047 32.5516 22 30.8012 22ZM20.9012 29.15C19.4425 29.15 18.0435 29.7295 17.0121 30.761C15.9806 31.7924 15.4012 33.1914 15.4012 34.65V37.51C15.4012 37.8018 15.2853 38.0816 15.079 38.2879C14.8727 38.4942 14.5929 38.61 14.3012 38.61C14.0094 38.61 13.7296 38.4942 13.5234 38.2879C13.3171 38.0816 13.2012 37.8018 13.2012 37.51V34.65C13.2012 32.6079 14.0124 30.6494 15.4565 29.2053C16.9005 27.7613 18.859 26.95 20.9012 26.95C22.9433 26.95 24.9019 27.7613 26.3459 29.2053C27.7899 30.6494 28.6012 32.6079 28.6012 34.65V37.51C28.6012 37.8018 28.4853 38.0816 28.279 38.2879C28.0727 38.4942 27.7929 38.61 27.5012 38.61C27.2094 38.61 26.9296 38.4942 26.7234 38.2879C26.5171 38.0816 26.4012 37.8018 26.4012 37.51V34.65C26.4012 33.9278 26.2589 33.2126 25.9825 32.5453C25.7061 31.878 25.301 31.2717 24.7903 30.761C24.2795 30.2502 23.6732 29.8451 23.0059 29.5687C22.3386 29.2923 21.6234 29.15 20.9012 29.15Z"
+                        fill="white"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M20.9008 25.8501C22.0677 25.8501 23.1869 25.3865 24.0121 24.5614C24.8372 23.7362 25.3008 22.6171 25.3008 21.4501C25.3008 20.2831 24.8372 19.164 24.0121 18.3388C23.1869 17.5137 22.0677 17.0501 20.9008 17.0501C19.7338 17.0501 18.6147 17.5137 17.7895 18.3388C16.9644 19.164 16.5008 20.2831 16.5008 21.4501C16.5008 22.6171 16.9644 23.7362 17.7895 24.5614C18.6147 25.3865 19.7338 25.8501 20.9008 25.8501ZM20.9008 28.0501C22.6512 28.0501 24.3299 27.3547 25.5677 26.117C26.8054 24.8793 27.5008 23.2005 27.5008 21.4501C27.5008 19.6997 26.8054 18.0209 25.5677 16.7832C24.3299 15.5455 22.6512 14.8501 20.9008 14.8501C19.1504 14.8501 17.4716 15.5455 16.2339 16.7832C14.9961 18.0209 14.3008 19.6997 14.3008 21.4501C14.3008 23.2005 14.9961 24.8793 16.2339 26.117C17.4716 27.3547 19.1504 28.0501 20.9008 28.0501Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div class="cont">
+                    <p class="fw-bold">150000+</p>
+                    <p class="text-secondary">User’s</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-12">
+                <div class="diff-icons d-flex align-items-center gap-3 mb-4">
+                  <div
+                    class="icon d-flex align-items-center p-3 rounded-circle"
+                  >
+                    <svg
+                      width="44"
+                      height="44"
+                      viewBox="0 0 44 44"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.5 28.8749V15.1249C5.5 14.1525 5.88631 13.2198 6.57394 12.5322C7.26158 11.8446 8.19421 11.4583 9.16667 11.4583H24.75C25.7225 11.4583 26.6551 11.8446 27.3427 12.5322C28.0304 13.2198 28.4167 14.1525 28.4167 15.1249V28.8749C28.4167 29.8474 28.0304 30.78 27.3427 31.4676C26.6551 32.1553 25.7225 32.5416 24.75 32.5416H9.16667C8.19421 32.5416 7.26158 32.1553 6.57394 31.4676C5.88631 30.78 5.5 29.8474 5.5 28.8749ZM36.9747 12.8168L29.6413 19.3489C29.5447 19.4347 29.4673 19.54 29.4142 19.6579C29.3611 19.7757 29.3336 19.9035 29.3333 20.0328V23.2924C29.3336 23.4217 29.3611 23.5494 29.4142 23.6673C29.4673 23.7851 29.5447 23.8904 29.6413 23.9763L36.9747 30.5084C37.1068 30.6257 37.27 30.7024 37.4447 30.7291C37.6193 30.7558 37.798 30.7315 37.9592 30.6591C38.1203 30.5866 38.2571 30.4691 38.3531 30.3208C38.449 30.1724 38.5 29.9995 38.5 29.8228V13.5024C38.5 13.3257 38.449 13.1528 38.3531 13.0044C38.2571 12.856 38.1203 12.7385 37.9592 12.6661C37.798 12.5936 37.6193 12.5693 37.4447 12.5961C37.27 12.6228 37.1068 12.6994 36.9747 12.8168Z"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div class="cont">
+                    <p class="fw-bold">10000+</p>
+                    <p class="text-secondary">Video</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Difference -->
+    <!-- Start Why Us  -->
+    <div class="why-us mt-5">
+      <div class="container">
+        <div class="head text-center mb-5">
+          <h2>Why <span> Hintcourses.com?</span></h2>
+        </div>
+        <div
+          class="disc d-flex flex-column flex-md-row flex-wrap align-items-center justify-content-between"
+        >
+          <div class="box d-flex flex-column gap-3 align-items-center mb-4">
+            <picture>
+              <img src="/assets/img/trophy 1.png" alt="" class="mw-100" />
+            </picture>
+            <p class="fw-bold">Advance Your Future</p>
+          </div>
+          <div class="box d-flex flex-column gap-3 align-items-center mb-4">
+            <picture>
+              <img src="/assets/img/torch 1.png" alt="" class="mw-100" />
+            </picture>
+            <p class="fw-bold">Unique Learning System</p>
+          </div>
+          <div class="box d-flex flex-column gap-3 align-items-center mb-4">
+            <picture>
+              <img src="/assets/img/whistle 1.png" alt="" class="mw-100" />
+            </picture>
+            <p class="fw-bold">Free and Paid</p>
+          </div>
+          <div class="box d-flex flex-column gap-3 align-items-center mb-4">
+            <picture>
+              <img src="/assets/img/gold-medal 1.png" alt="" class="mw-100" />
+            </picture>
+            <p class="fw-bold">Trusted Courses Material</p>
+          </div>
+          <div class="box d-flex flex-column gap-3 align-items-center mb-4">
+            <picture>
+              <img src="/assets/img/ninja 1.png" alt="" class="mw-100" />
+            </picture>
+            <p class="fw-bold">Advanced Skills</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Why Us  -->
+  </body>
+</html>
